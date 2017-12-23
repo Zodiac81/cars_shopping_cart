@@ -1,0 +1,18 @@
+.price {
+    font-weight: bold;
+}
+.description{
+    color: #b1b7ba;
+}
+
+.card{
+    margin: 30px;
+}
+
+.header-logo{
+    text-align: center;
+}
+#logo{
+    width: 40%;
+
+}
