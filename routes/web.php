@@ -11,15 +11,25 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+//Auth
+Route::get('signup',[
+    'uses'  => 'AuthController@getSignup',
+    'as'    => "user.getSignup"
+]);
 
-/*Route::get('/', function () {
-    return view('shop.index');
-});*/
+Route::post('signup',[
+    'uses'  => 'AuthController@postSignUp',
+    'as'    => "user.postSignup"
+]);
+
+Route::get('signin',[
+    'uses'  => 'AuthController@signin',
+    'as'    => "signin"
+]);
 
 Route::get('/', [
-    "uses"=>"ProductController@getIndex",
-    "as"  => "product.index"
+    "uses" =>"ProductController@getIndex",
+    "as"   => "product.index"
 ]);
+
+
