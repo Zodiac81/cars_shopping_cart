@@ -18,7 +18,7 @@
                             <h4 class="card-title">{{$product->title}}</h4>
                             <p class="card-text description">{{$product->description}} </p>
                             <p class="card-text price"> Price: {{$product->price}}$ </p>
-                            <a href="#" class="btn btn-primary pull-right">Add to Cart</a>
+                            <a href="{{route('product.getAddToCart', ['id'=> $product->id])}}" class="btn btn-primary pull-right">Add to Cart</a>
                         </div>
                     </div>
                 </div>

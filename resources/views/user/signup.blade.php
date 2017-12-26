@@ -15,6 +15,10 @@
             <form action="{{route('user.postSignup')}}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text" id="login" class="form-control" name="login" value="">
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" class="form-control" name="email" value="">
                 </div>
