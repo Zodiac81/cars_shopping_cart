@@ -16,6 +16,7 @@
 
 Route::group(['prefix'=>"user"], function (){
     Route::group(['middleware'=>'guest'], function (){
+
         Route::get('/signup',[
             'uses'  => 'AuthController@getSignup',
             'as'    => "user.getSignup"
@@ -45,11 +46,10 @@ Route::group(['prefix'=>"user"], function (){
             'as'    => "user.getUserProfile"
         ]);
 
-
     });
 
-
 });
+
 Route::get('/logout',[
     'uses'  => 'AuthController@userLogout',
     'as'    => "user.logout",
@@ -64,4 +64,9 @@ Route::get('/', [
 Route::get('/add-to-cart/{id}',[
     'uses'  => 'ProductController@getAddToCart',
     'as'    => "product.getAddToCart"
+]);
+
+Route::get('/shopping-cart',[
+    'uses'  => 'ProductController@getCart',
+    'as'    => "product.shoppingCart"
 ]);
