@@ -6,12 +6,16 @@ var style = {
     base: {
         // Add your base input styles here. For example:
         fontSize: '16px',
-        color: "#32325d",
+        color: "#32325d"
+
     }
 };
 
-// Create an instance of the card Element
-var card = elements.create('card', {style: style});
+ //Create an instance of the card Element
+var card = elements.create('card', {
+    style: style,
+    hidePostalCode:true
+});
 
 // Add an instance of the card Element into the `card-element` <div>
 card.mount('#card-element');
@@ -45,6 +49,7 @@ form.addEventListener('submit', function(event) {
 function stripeTokenHandler(token) {
     // Insert the token ID into the form so it gets submitted to the server
     var form = document.getElementById('checkout-form');
+    //console.log(form);
     var hiddenInput = document.createElement('input');
     hiddenInput.setAttribute('type', 'hidden');
     hiddenInput.setAttribute('name', 'stripeToken');

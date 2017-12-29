@@ -53,7 +53,24 @@ class ProductController extends Controller
         return view('shop.checkout',['total'=>$total]);
     }
 
-    public function postCheckout(){
+    public function postCheckout(Request $request){
+        // Set your secret key: remember to change this to your live secret key in production
+        // See your keys here: https://dashboard.stripe.com/account/apikeys
+        \Stripe\Stripe::setApiKey("sk_test_BA5vPObjv0ubeUxD8EymhZNK");
+//dd($request->all());
+        // Token is created using Checkout or Elements!
+        // Get the payment token ID submitted by the form:
+        $token = $request->stripeToken;
+        //$cart = new Cart();
+//dd(Session::get('cart'));
+        // Charge the user's card:
+        $charge = \Stripe\Charge::create(array(
+            "amount" =>Session::get('cart')->totalPrice * 100,
+            "currency" => "usd",
+            "description" => "Example charge",
+            "source" => $token,
+        ));
 
+        return redirect()->route('product.index');
     }
 }
